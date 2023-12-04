@@ -74,8 +74,8 @@
             alert('sign up')
             let name = document.getElementById('name').value;
             let password = document.getElementById('pass').value;
-
-            axios.post('http://localhost:3000/signup', { name: name, password: password })
+            
+            axios.post('https://loginbackend-c72q.onrender.com/signup', { name: name, password: password })
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 

@@ -74,7 +74,7 @@
             let name = document.getElementById('name').value;
             let password = document.getElementById('pass').value;
 
-            axios.post('http://localhost:3000/login', { name: name, password: password })
+            axios.post('https://loginbackend-c72q.onrender.com/login', { name: name, password: password })
                 .then(res => {
                     alert(res.data)
 
