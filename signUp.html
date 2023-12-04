@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            background-color: black;
+        }
+
+        .cont {
+            background-color: #fff;
+            width: 50%;
+            padding: 20px;
+        }
+
+        input {
+            width: 100%;
+            margin: 0px 0px 30px 0px;
+            padding: 10px;
+        }
+
+        .lo {
+            background-color: rgb(7, 119, 7);
+            padding: 10px;
+            width: fit-content;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        p {
+            height: 30px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body class="flex">
+    <div class="cont">
+        <p id="s"></p>
+        <div>
+            <input id="name" type="email" placeholder="example@23gmail.com" required>
+        </div>
+        <p id="f"></p>
+        <div>
+            <input id="pass" type="password" placeholder="password" required>
+        </div>
+
+        <div onclick="signUp()" class="lo">
+            Sign Up
+        </div>
+
+        <span>if you have an account</span>
+        <a href="login.html">Login</a>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="front.js"></script> -->
+    <script>
+        function signUp() {
+            alert('sign up')
+            let name = document.getElementById('name').value;
+            let password = document.getElementById('pass').value;
+
+            axios.post('http://localhost:3000/signup', { name: name, password: password })
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+
+            // if (name === "" || password === "") {
+            //     document.getElementById("s").innerHTML = "Invalid username or password";
+            //     document.getElementById("f").innerHTML = "";
+            // } else {
+            //     document.getElementById("s").innerHTML = "";
+            //     document.getElementById("f").innerHTML = "";
+            // }
+        }
+    </script>
+</body>
+
+</html>
